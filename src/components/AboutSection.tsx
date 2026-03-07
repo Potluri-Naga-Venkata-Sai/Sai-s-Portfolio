@@ -1,29 +1,35 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Code2, Target } from "lucide-react";
 
+const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+  <div className="mb-12">
+    <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+      <span className="neon-text">{children}</span>
+    </h2>
+    <div className="w-20 h-0.5 bg-primary/50 mt-4 rounded-full" style={{ boxShadow: "0 0 10px hsl(190 100% 50% / 0.4)" }} />
+  </div>
+);
+
 const AboutSection = () => (
   <section id="about" className="section-padding">
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.7 }}
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-2">
-        <span className="gradient-text">About Me</span>
-      </h2>
-      <div className="w-16 h-1 bg-primary rounded mb-8" />
+      <SectionTitle>About Me</SectionTitle>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-          <p>
-            I am Naga Venkata Sai Potluri, a passionate Software Engineering student with a strong
-            interest in building efficient and scalable software solutions. I am continuously
-            improving my skills in programming, algorithms, and modern technologies.
+      <div className="grid md:grid-cols-2 gap-10">
+        <div className="space-y-5">
+          <p className="text-foreground/70 leading-relaxed text-sm md:text-base">
+            👋 Hey, I'm <span className="neon-text-subtle font-semibold">Naga Venkata Sai Potluri</span>, a Software Engineering student.
           </p>
-          <p>
-            My goal is to become a professional software engineer and contribute to innovative
-            projects that solve real-world problems.
+          <p className="text-foreground/60 leading-relaxed text-sm md:text-base">
+            I've been working with <span className="text-foreground font-medium">Python</span>, <span className="text-foreground font-medium">React</span>, and <span className="text-foreground font-medium">Machine Learning</span>, building applications that are fast, scalable and user-friendly.
+          </p>
+          <p className="text-foreground/60 leading-relaxed text-sm md:text-base">
+            I like solving problems, learning new things, and experimenting with different technologies. My goal is to become a professional software engineer and contribute to innovative projects that solve real-world problems.
           </p>
         </div>
 
@@ -32,26 +38,30 @@ const AboutSection = () => (
             {
               icon: GraduationCap,
               title: "Education",
-              desc: "B.Tech – CSE (AI & ML), Lovely Professional University, 2027",
+              desc: "B.Tech – CSE (AI & ML)",
+              sub: "Lovely Professional University | 2027",
             },
             {
               icon: Code2,
-              title: "Focus",
+              title: "Focus Areas",
               desc: "Full Stack Development, Machine Learning, NLP",
+              sub: "Building scalable applications",
             },
             {
               icon: Target,
               title: "Goal",
-              desc: "Build impactful software that solves real-world problems",
+              desc: "Build impactful software",
+              sub: "Solving real-world problems with code",
             },
-          ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="glass-card rounded-lg p-4 flex items-start gap-4">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Icon size={20} className="text-primary" />
+          ].map(({ icon: Icon, title, desc, sub }) => (
+            <div key={title} className="glass-card glass-card-hover rounded-xl p-5 flex items-start gap-4">
+              <div className="p-2.5 rounded-lg neon-border">
+                <Icon size={18} className="text-primary" />
               </div>
               <div>
                 <h3 className="font-semibold text-sm text-foreground">{title}</h3>
-                <p className="text-xs text-muted-foreground mt-1">{desc}</p>
+                <p className="text-xs text-foreground/70 mt-1">{desc}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
               </div>
             </div>
           ))}

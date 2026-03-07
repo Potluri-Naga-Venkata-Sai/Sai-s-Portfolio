@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    title: "Languages",
+    title: "Core Stack",
     skills: ["C", "C++", "Java", "Python", "SQL"],
   },
   {
@@ -22,33 +22,34 @@ const skillCategories = [
 const SkillsSection = () => (
   <section id="skills" className="section-padding">
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.7 }}
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-2">
-        <span className="gradient-text">Skills</span>
-      </h2>
-      <div className="w-16 h-1 bg-primary rounded mb-8" />
+      <div className="mb-12">
+        <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+          <span className="neon-text">Tech Stack</span>
+        </h2>
+        <div className="w-20 h-0.5 bg-primary/50 mt-4 rounded-full" style={{ boxShadow: "0 0 10px hsl(190 100% 50% / 0.4)" }} />
+      </div>
 
       <div className="grid sm:grid-cols-2 gap-6">
         {skillCategories.map((cat, i) => (
           <motion.div
             key={cat.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="glass-card rounded-xl p-6"
+            className="glass-card glass-card-hover rounded-xl p-6"
           >
-            <h3 className="font-semibold text-foreground mb-4 font-mono text-sm">{cat.title}</h3>
+            <h3 className="font-display text-xs font-bold uppercase tracking-widest neon-text-subtle mb-5">
+              {cat.title}
+            </h3>
             <div className="flex flex-wrap gap-2">
               {cat.skills.map((s) => (
-                <span
-                  key={s}
-                  className="px-3 py-1.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-                >
+                <span key={s} className="skill-tag font-mono">
                   {s}
                 </span>
               ))}
