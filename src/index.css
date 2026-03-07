@@ -2,82 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 220 25% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
-    --primary: 172 66% 50%;
-    --primary-foreground: 220 25% 5%;
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 220 25% 10%;
-    --muted: 220 15% 92%;
-    --muted-foreground: 220 10% 46%;
-    --accent: 260 60% 58%;
-    --accent-foreground: 0 0% 100%;
+    --background: 220 15% 6%;
+    --foreground: 210 20% 92%;
+    --card: 220 20% 10%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 190 100% 50%;
+    --primary-foreground: 220 30% 5%;
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 215 12% 50%;
+    --accent: 190 100% 50%;
+    --accent-foreground: 220 30% 5%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 172 66% 50%;
+    --border: 220 15% 16%;
+    --input: 220 15% 16%;
+    --ring: 190 100% 50%;
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(172 66% 50%), hsl(200 80% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(260 60% 58%), hsl(300 60% 55%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 20% 96%));
-    --shadow-glow: 0 0 30px hsl(172 66% 50% / 0.15);
-    --shadow-card: 0 4px 24px hsl(220 25% 10% / 0.06);
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222 30% 8%;
-    --foreground: 210 20% 92%;
-    --card: 222 25% 12%;
-    --card-foreground: 210 20% 92%;
-    --popover: 222 25% 12%;
-    --popover-foreground: 210 20% 92%;
-    --primary: 172 66% 50%;
-    --primary-foreground: 220 25% 5%;
-    --secondary: 222 20% 16%;
-    --secondary-foreground: 210 20% 92%;
-    --muted: 222 20% 16%;
-    --muted-foreground: 215 15% 55%;
-    --accent: 260 60% 65%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 222 20% 18%;
-    --input: 222 20% 18%;
-    --ring: 172 66% 50%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(172 66% 50%), hsl(200 80% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(260 60% 65%), hsl(300 60% 60%));
-    --gradient-card: linear-gradient(145deg, hsl(222 25% 13%), hsl(222 25% 11%));
-    --shadow-glow: 0 0 40px hsl(172 66% 50% / 0.12);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.3);
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 15% 6%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 220 30% 5%;
+    --sidebar-accent: 220 15% 14%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 190 100% 50%;
   }
 }
 
@@ -86,7 +43,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
   }
   html {
@@ -95,67 +52,131 @@
 }
 
 @layer components {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
 
-  .gradient-text {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .neon-text {
+    color: hsl(190 100% 50%);
+    text-shadow:
+      0 0 7px hsl(190 100% 50% / 0.6),
+      0 0 20px hsl(190 100% 50% / 0.4),
+      0 0 40px hsl(190 100% 50% / 0.2),
+      0 0 80px hsl(190 100% 50% / 0.1);
   }
 
-  .gradient-accent-text {
-    background: var(--gradient-accent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .neon-text-subtle {
+    color: hsl(190 100% 50%);
+    text-shadow:
+      0 0 7px hsl(190 100% 50% / 0.4),
+      0 0 20px hsl(190 100% 50% / 0.2);
+  }
+
+  .neon-border {
+    border: 1px solid hsl(190 100% 50% / 0.3);
+    box-shadow:
+      0 0 10px hsl(190 100% 50% / 0.1),
+      inset 0 0 10px hsl(190 100% 50% / 0.05);
+  }
+
+  .neon-border-hover {
+    transition: all 0.3s ease;
+  }
+  .neon-border-hover:hover {
+    border-color: hsl(190 100% 50% / 0.6);
+    box-shadow:
+      0 0 20px hsl(190 100% 50% / 0.2),
+      inset 0 0 20px hsl(190 100% 50% / 0.05);
   }
 
   .glass-card {
-    background: var(--gradient-card);
-    backdrop-filter: blur(12px);
-    box-shadow: var(--shadow-card);
-    border: 1px solid hsl(var(--border));
+    background: hsl(220 20% 8% / 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(190 100% 50% / 0.1);
   }
 
-  .glow-border {
-    box-shadow: var(--shadow-glow);
+  .glass-card-hover {
+    transition: all 0.4s ease;
+  }
+  .glass-card-hover:hover {
+    background: hsl(220 20% 10% / 0.9);
+    border-color: hsl(190 100% 50% / 0.3);
+    box-shadow: 0 0 30px hsl(190 100% 50% / 0.08);
   }
 
-  .particle-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
+  .glow-button {
+    background: hsl(190 100% 50% / 0.1);
+    border: 1px solid hsl(190 100% 50% / 0.4);
+    color: hsl(190 100% 50%);
+    transition: all 0.3s ease;
+  }
+  .glow-button:hover {
+    background: hsl(190 100% 50% / 0.2);
+    border-color: hsl(190 100% 50% / 0.8);
+    box-shadow: 0 0 25px hsl(190 100% 50% / 0.2);
   }
 
-  .particle {
-    position: absolute;
-    border-radius: 50%;
-    background: hsl(var(--primary) / 0.3);
-    animation: float linear infinite;
+  .glow-button-solid {
+    background: hsl(190 100% 50%);
+    color: hsl(220 30% 5%);
+    box-shadow: 0 0 20px hsl(190 100% 50% / 0.3);
+    transition: all 0.3s ease;
+  }
+  .glow-button-solid:hover {
+    box-shadow: 0 0 40px hsl(190 100% 50% / 0.5);
   }
 
-  @keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+  .radial-gradient-bg {
+    background: radial-gradient(ellipse at center, hsl(190 100% 50% / 0.06) 0%, transparent 70%);
+  }
+
+  .section-padding {
+    @apply px-4 py-24 md:px-8 lg:px-16 max-w-6xl mx-auto;
   }
 
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
   }
-
   .cursor-blink {
     animation: blink 1s step-end infinite;
   }
 
-  .section-padding {
-    @apply px-4 py-20 md:px-8 lg:px-16 max-w-6xl mx-auto;
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .skill-tag {
+    @apply px-3 py-1.5 text-xs font-medium rounded-md;
+    background: hsl(190 100% 50% / 0.08);
+    border: 1px solid hsl(190 100% 50% / 0.2);
+    color: hsl(190 100% 60%);
+    transition: all 0.3s ease;
+  }
+  .skill-tag:hover {
+    background: hsl(190 100% 50% / 0.15);
+    border-color: hsl(190 100% 50% / 0.5);
+    box-shadow: 0 0 15px hsl(190 100% 50% / 0.1);
+  }
+
+  .social-icon {
+    @apply p-3 rounded-lg;
+    border: 1px solid hsl(190 100% 50% / 0.3);
+    color: hsl(190 100% 50%);
+    background: hsl(220 20% 8%);
+    transition: all 0.3s ease;
+  }
+  .social-icon:hover {
+    background: hsl(190 100% 50% / 0.15);
+    border-color: hsl(190 100% 50% / 0.7);
+    box-shadow: 0 0 20px hsl(190 100% 50% / 0.2);
   }
 }
