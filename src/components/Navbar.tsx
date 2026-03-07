@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -11,13 +11,8 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [dark, setDark] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-  }, [dark]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -27,16 +22,16 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
+      initial={{ y: -80 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card border-b" : "bg-transparent"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "glass-card border-b border-border" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-        <a href="#" className="font-mono text-lg font-bold gradient-text">
-          {"<NVS />"}
+      <div className="max-w-6xl mx-auto px-6 md:px-8 flex items-center justify-between h-16">
+        <a href="#" className="font-display text-sm font-bold neon-text-subtle tracking-widest">
+          NVS
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -44,36 +39,20 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-xs font-medium uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               {l.label}
             </a>
           ))}
-          <button
-            onClick={() => setDark(!dark)}
-            className="p-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
         </div>
 
-        <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={() => setDark(!dark)}
-            className="p-2 rounded-lg bg-secondary text-secondary-foreground"
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-lg bg-secondary text-secondary-foreground"
-            aria-label="Menu"
-          >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden social-icon !p-2"
+          aria-label="Menu"
+        >
+          {mobileOpen ? <X size={16} /> : <Menu size={16} />}
+        </button>
       </div>
 
       <AnimatePresence>
@@ -82,15 +61,15 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-card border-t overflow-hidden"
+            className="md:hidden glass-card border-t border-border overflow-hidden"
           >
-            <div className="flex flex-col px-4 py-4 gap-3">
+            <div className="flex flex-col px-6 py-4 gap-3">
               {navLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
+                  className="text-xs font-medium uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors py-2"
                 >
                   {l.label}
                 </a>
