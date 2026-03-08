@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
+import profile from '../assets/profile.jpg';  // Adjust path if needed
 
 const roles = ["Software Engineer", "AI & ML Student", "Full Stack Developer", "Problem Solver"];
 
@@ -33,6 +34,11 @@ const HeroSection = () => {
       <div className="absolute inset-0 radial-gradient-bg" />
 
       <div className="relative z-10 text-center px-4">
+        <img
+    src={profile}
+    alt="Naga Venkata Sai"
+    className="w-40 h-40 rounded-full border-4 border-blue-500 mx-auto mb-6 shadow-[0_0_25px_#3b82f6]"
+  />
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,6 +84,22 @@ const HeroSection = () => {
             Projects
           </a>
         </motion.div>
+
+        {/* Resume Button */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="mb-12"
+          >
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition font-medium"
+        >
+        Download Resume
+      </a>
+      </motion.div>
 
         {/* Social icons */}
         <motion.div
