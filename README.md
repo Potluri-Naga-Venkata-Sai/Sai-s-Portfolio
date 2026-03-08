@@ -1,73 +1,123 @@
-# Welcome to your Lovable project
+# Naga Venkata Sai – Developer Portfolio
 
-## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 📌 Project Overview
 
-There are several ways of editing your application.
+This repository contains the source code for my personal developer portfolio.
+The portfolio showcases my skills, projects, achievements, and experience as a **Computer Science student specializing in Artificial Intelligence and Machine Learning**.
 
-**Use Lovable**
+The goal of this website is to present my work, technical expertise, and projects in a professional way for recruiters and collaborators.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 👨‍💻 About Me
 
-**Use your preferred IDE**
+I am **Naga Venkata Sai Potluri**, a B.Tech Computer Science student (AI & ML) at **Lovely Professional University** graduating in 2027.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+I am passionate about:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+* Artificial Intelligence
+* Machine Learning
+* Natural Language Processing
+* Full-Stack Development
+* Data-Driven Applications
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Projects Featured
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 📰 News Article Summarizer
 
-# Step 3: Install the necessary dependencies.
-npm i
+An NLP-based application that summarizes news articles using transformer models.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+**Key Features**
+
+* Extracts news content from URLs
+* Uses HuggingFace BART for abstractive summarization
+* Improves summarization accuracy and readability
+
+**Tech Stack**
+Python, NLP, Flask, HuggingFace Transformers
+
+---
+
+### 🌍 Climate Risk Dashboard
+
+A machine learning dashboard that visualizes and predicts climate trends.
+
+**Key Features**
+
+* Forecasts temperature anomalies and climate indicators
+* Interactive data visualizations
+* ML forecasting models
+
+**Tech Stack**
+Python, Pandas, Plotly, Streamlit, Flask
+
+---
+
+## 🛠️ Technologies Used
+
+This project is built with modern web technologies:
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* shadcn/ui
+* JavaScript
+* HTML & CSS
+
+---
+
+## 📂 Project Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Potluri-Naga-Venkata-Sai/sai-s-portfolio.git
+```
+
+### 2️⃣ Navigate to the Project Folder
+
+```bash
+cd sai-s-portfolio
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 4️⃣ Start the Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The project will start locally at:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+http://localhost:5173
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📬 Contact
 
-## What technologies are used for this project?
+**Email:** [nagavenkatasaipotluri@gmail.com](mailto:nagavenkatasaipotluri@gmail.com)
 
-This project is built with:
+**LinkedIn:**
+https://www.linkedin.com/in/naga-venkata-sai-potluri
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**GitHub:**
+https://github.com/Potluri-Naga-Venkata-Sai
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 📜 License
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open-source and available under the MIT License.
