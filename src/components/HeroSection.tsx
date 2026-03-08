@@ -34,11 +34,13 @@ const HeroSection = () => {
       <div className="absolute inset-0 radial-gradient-bg" />
 
       <div className="relative z-10 text-center px-4">
-        <img
+<div className="flex justify-center">
+  <img
     src={profile}
-    alt="Naga Venkata Sai"
-    className="w-40 h-40 rounded-full border-4 border-blue-500 mx-auto mb-6 shadow-[0_0_25px_#3b82f6]"
+    alt="Sai"
+    className="w-44 h-44 rounded-full object-cover border-4 border-blue-500 shadow-xl"
   />
+</div>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
