@@ -5,7 +5,8 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import AchievementsSection from "@/components/AchievementsSection";
-import GitHubStats from "@/components/GitHubStats";
+import GitHubRepos from "@/components/GitHubRepos";
+import LeetCodeStats from "@/components/LeetCodeStats";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -20,7 +21,8 @@ const Index = () => {
         <SkillsSection />
         <ProjectsSection />
         <AchievementsSection />
-        <GitHubStats />
+        <GitHubRepos />
+        <LeetCodeStats />
         <ContactSection />
       </main>
       <Footer />

@@ -31,7 +31,9 @@ const Navbar = () => {
     >
       <div className="max-w-6xl mx-auto px-6 md:px-8 flex items-center justify-between h-16">
         <a href="#" className="font-display text-sm font-bold neon-text-subtle tracking-widest">
-          NVS
+          <span className="font-display text-lg md:text-xl font-bold">
+  Naga Venkata Sai
+</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">

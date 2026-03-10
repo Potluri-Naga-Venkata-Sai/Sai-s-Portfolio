@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* Updated Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -42,20 +43,29 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-[18px];
     font-family: 'Inter', sans-serif;
+    font-size: 17px; /* Slightly larger text */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
+
   html {
     scroll-behavior: smooth;
   }
 }
 
 @layer components {
+
+  /* Headings / Name */
   .font-display {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
   }
 
+  /* Code / typing animation */
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
@@ -86,6 +96,7 @@
   .neon-border-hover {
     transition: all 0.3s ease;
   }
+
   .neon-border-hover:hover {
     border-color: hsl(190 100% 50% / 0.6);
     box-shadow:
@@ -102,6 +113,7 @@
   .glass-card-hover {
     transition: all 0.4s ease;
   }
+
   .glass-card-hover:hover {
     background: hsl(220 20% 10% / 0.9);
     border-color: hsl(190 100% 50% / 0.3);
@@ -114,6 +126,7 @@
     color: hsl(190 100% 50%);
     transition: all 0.3s ease;
   }
+
   .glow-button:hover {
     background: hsl(190 100% 50% / 0.2);
     border-color: hsl(190 100% 50% / 0.8);
@@ -126,41 +139,89 @@
     box-shadow: 0 0 20px hsl(190 100% 50% / 0.3);
     transition: all 0.3s ease;
   }
+
   .glow-button-solid:hover {
     box-shadow: 0 0 40px hsl(190 100% 50% / 0.5);
   }
 
   .radial-gradient-bg {
-    background: radial-gradient(ellipse at center, hsl(190 100% 50% / 0.06) 0%, transparent 70%);
+    background: radial-gradient(
+      ellipse at center,
+      hsl(190 100% 50% / 0.06) 0%,
+      transparent 70%
+    );
+      /* Rotating glow rings around profile photo */
+
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+
+  .glow-ring {
+    position: absolute;
+    border-radius: 9999px;
+    border: 2px solid hsl(190 100% 50% / 0.6);
+    box-shadow:
+      0 0 20px hsl(190 100% 50% / 0.4),
+      inset 0 0 20px hsl(190 100% 50% / 0.2);
+  }
+
+  .glow-ring-outer {
+    width: 340px;
+    height: 340px;
+  }
+
+  .glow-ring-inner {
+    width: 300px;
+    height: 300px;
+    border-color: hsl(190 100% 50% / 0.4);
+  }
   }
 
   .section-padding {
     @apply px-4 py-24 md:px-8 lg:px-16 max-w-6xl mx-auto;
   }
 
+  /* Cursor blink animation */
+
   @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%,100% {opacity:1}
+    50% {opacity:0}
   }
+
   .cursor-blink {
     animation: blink 1s step-end infinite;
   }
 
+  /* Glow pulse animation */
+
   @keyframes pulse-glow {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
+    0%,100% {opacity:0.4}
+    50% {opacity:1}
   }
+
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
   .skill-tag {
     @apply px-3 py-1.5 text-xs font-medium rounded-md;
+
     background: hsl(190 100% 50% / 0.08);
     border: 1px solid hsl(190 100% 50% / 0.2);
     color: hsl(190 100% 60%);
+
     transition: all 0.3s ease;
   }
+
   .skill-tag:hover {
     background: hsl(190 100% 50% / 0.15);
     border-color: hsl(190 100% 50% / 0.5);
@@ -169,11 +230,14 @@
 
   .social-icon {
     @apply p-3 rounded-lg;
+
     border: 1px solid hsl(190 100% 50% / 0.3);
     color: hsl(190 100% 50%);
     background: hsl(220 20% 8%);
+
     transition: all 0.3s ease;
   }
+
   .social-icon:hover {
     background: hsl(190 100% 50% / 0.15);
     border-color: hsl(190 100% 50% / 0.7);

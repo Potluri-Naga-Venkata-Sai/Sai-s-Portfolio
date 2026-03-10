@@ -1,135 +1,226 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
-import profile from '../assets/profile.jpg';  // Adjust path if needed
+import profile from '../assets/profile.jpg';
+
+import { FaReact, FaPython, FaNodeJs, FaJsSquare, FaJava, FaGitAlt } from "react-icons/fa";
+import { SiCplusplus, SiTensorflow, SiMysql } from "react-icons/si";
 
 const roles = ["Software Engineer", "AI & ML Student", "Full Stack Developer", "Problem Solver"];
 
 const HeroSection = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
 
-  useEffect(() => {
-    const current = roles[roleIndex];
-    let timeout: ReturnType<typeof setTimeout>;
+const [roleIndex, setRoleIndex] = useState(0);
+const [text, setText] = useState("");
+const [deleting, setDeleting] = useState(false);
 
-    if (!deleting && text.length < current.length) {
-      timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 80);
-    } else if (!deleting && text.length === current.length) {
-      timeout = setTimeout(() => setDeleting(true), 2000);
-    } else if (deleting && text.length > 0) {
-      timeout = setTimeout(() => setText(text.slice(0, -1)), 40);
-    } else if (deleting && text.length === 0) {
-      setDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    }
+useEffect(() => {
 
-    return () => clearTimeout(timeout);
-  }, [text, deleting, roleIndex]);
+const current = roles[roleIndex];
+let timeout: ReturnType<typeof setTimeout>;
 
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Radial glow behind name */}
-      <div className="absolute inset-0 radial-gradient-bg" />
+if (!deleting && text.length < current.length) {
+timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 80);
+}
+else if (!deleting && text.length === current.length) {
+timeout = setTimeout(() => setDeleting(true), 2000);
+}
+else if (deleting && text.length > 0) {
+timeout = setTimeout(() => setText(text.slice(0, -1)), 40);
+}
+else if (deleting && text.length === 0) {
+setDeleting(false);
+setRoleIndex((prev) => (prev + 1) % roles.length);
+}
 
-      <div className="relative z-10 text-center px-4">
-<div className="flex justify-center">
-  <img
-    src={profile}
-    alt="Sai"
-    className="w-44 h-44 rounded-full object-cover border-4 border-blue-500 shadow-xl"
-  />
+return () => clearTimeout(timeout);
+
+}, [text, deleting, roleIndex]);
+
+return (
+
+<section className="relative min-h-screen flex items-center overflow-hidden">
+
+{/* Background */}
+<div className="absolute inset-0 radial-gradient-bg" />
+
+<div className="relative z-10 container mx-auto px-6">
+
+<div className="grid md:grid-cols-2 gap-12 items-center">
+
+{/* LEFT SIDE */}
+
+<div>
+
+<motion.p
+initial={{ opacity: 0, y: 30 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ delay: 0.3, duration: 0.6 }}
+className="text-foreground/70 italic text-lg mb-3"
+>
+Hi, I am
+</motion.p>
+
+<motion.h1
+className="font-display text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 neon-text"
+>
+Naga Venkata Sai Potluri
+</motion.h1>
+
+<motion.div
+initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+transition={{ delay: 0.8 }}
+className="font-mono text-lg text-foreground/80 mt-4 h-7"
+>
+<span>{text}</span>
+<span className="neon-text-subtle cursor-blink">|</span>
+</motion.div>
+
+<p className="text-foreground/60 mt-4 max-w-lg">
+I build AI tools, scalable software systems, and modern full-stack web applications.
+Passionate about problem solving, machine learning, and clean code.
+</p>
+
+{/* Buttons */}
+
+<div className="flex gap-4 mt-8">
+
+<a
+href="#projects"
+className="glow-button px-6 py-3 rounded-lg text-sm"
+>
+View Projects
+</a>
+
+<a
+href="/resume.pdf"
+download
+className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition"
+>
+Download Resume
+</a>
+
 </div>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-foreground/70 italic text-lg md:text-xl mb-4 font-light"
-        >
-          Hi, I am
-        </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-black italic tracking-tight mb-6 neon-text"
-        >
-          NAGA VENKATA SAI
-        </motion.h1>
+{/* Social icons */}
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="font-mono text-base md:text-lg text-foreground/80 mb-12 h-7 italic"
-        >
-          <span>{text}</span>
-          <span className="neon-text-subtle cursor-blink">|</span>
-        </motion.div>
+<div className="flex gap-5 mt-8">
 
-        {/* Nav buttons like reference */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-          className="flex items-center justify-center gap-4 mb-16"
-        >
-          <a href="#about" className="glow-button px-6 py-2.5 rounded-lg text-xs font-medium uppercase tracking-wider">
-            About Me
-          </a>
-          <a href="#skills" className="glow-button px-6 py-2.5 rounded-lg text-xs font-medium uppercase tracking-wider">
-            Tech Stack
-          </a>
-          <a href="#projects" className="glow-button px-6 py-2.5 rounded-lg text-xs font-medium uppercase tracking-wider">
-            Projects
-          </a>
-        </motion.div>
+<a
+href="https://github.com/Potluri-Naga-Venkata-Sai"
+target="_blank"
+className="social-icon"
+>
+<Github size={20}/>
+</a>
 
-        {/* Resume Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="mb-12"
-          >
-          <a
-            href="/resume.pdf"
-            download
-            className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition font-medium"
-        >
-        Download Resume
-      </a>
-      </motion.div>
+<a
+href="https://www.linkedin.com/in/naga-venkata-sai-potluri"
+target="_blank"
+className="social-icon"
+>
+<Linkedin size={20}/>
+</a>
 
-        {/* Social icons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.6 }}
-          className="flex items-center justify-center gap-4"
-        >
-          {[
-            { icon: Github, href: "https://github.com/Potluri-Naga-Venkata-Sai", label: "GitHub" },
-            { icon: Linkedin, href: "https://www.linkedin.com/in/naga-venkata-sai-potluri", label: "LinkedIn" },
-            { icon: Mail, href: "mailto:nagavenkatasaipotluri@gmail.com", label: "Email" },
-          ].map(({ icon: Icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon"
-              aria-label={label}
-            >
-              <Icon size={20} />
-            </a>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
+<a
+href="mailto:nagavenkatasaipotluri@gmail.com"
+className="social-icon"
+>
+<Mail size={20}/>
+</a>
+
+</div>
+
+</div>
+
+{/* RIGHT SIDE */}
+
+<div className="relative flex items-center justify-center w-[420px] h-[420px] mx-auto">
+
+{/* OUTER ROTATING RING */}
+
+<div className="glow-ring glow-ring-outer rotate-slow"></div>
+
+{/* INNER ROTATING RING */}
+
+<div className="glow-ring glow-ring-inner rotate-slow"></div>
+
+{/* React */}
+
+<div className="absolute top-0 text-cyan-400 text-3xl">
+<FaReact/>
+</div>
+
+{/* Python */}
+
+<div className="absolute top-12 right-4 text-yellow-400 text-3xl">
+<FaPython/>
+</div>
+
+{/* C++ */}
+
+<div className="absolute right-0 top-1/2 -translate-y-1/2 text-blue-500 text-3xl">
+<SiCplusplus/>
+</div>
+
+{/* TensorFlow */}
+
+<div className="absolute bottom-12 right-4 text-orange-400 text-3xl">
+<SiTensorflow/>
+</div>
+
+{/* JavaScript */}
+
+<div className="absolute bottom-0 text-yellow-300 text-3xl">
+<FaJsSquare/>
+</div>
+
+{/* SQL */}
+
+<div className="absolute bottom-12 left-4 text-blue-400 text-3xl">
+<SiMysql/>
+</div>
+
+{/* Git */}
+
+<div className="absolute left-0 top-1/2 -translate-y-1/2 text-red-400 text-3xl">
+<FaGitAlt/>
+</div>
+
+{/* Node */}
+
+<div className="absolute top-12 left-4 text-green-500 text-3xl">
+<FaNodeJs/>
+</div>
+
+{/* Java */}
+
+<div className="absolute top-24 right-20 text-red-500 text-3xl">
+<FaJava/>
+</div>
+
+{/* PROFILE IMAGE */}
+
+<motion.img
+initial={{ opacity: 0, scale: 0.8 }}
+animate={{ opacity: 1, scale: 1 }}
+transition={{ delay: 0.6 }}
+src={profile}
+alt="Sai"
+className="relative w-72 h-72 rounded-full object-cover border-4 border-cyan-400 shadow-xl"
+/>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+);
+
 };
 
 export default HeroSection;
