@@ -14,6 +14,8 @@ The goal of this website is to present my work, technical expertise, and project
 
 ## 👨‍💻 About Me
 
+### Portfolio Live Link : https://sai-s-portfolio-tan.vercel.app/
+
 I am **Naga Venkata Sai Potluri**, a B.Tech Computer Science student (AI & ML) at **Lovely Professional University** graduating in 2027.
 
 I am passionate about:
