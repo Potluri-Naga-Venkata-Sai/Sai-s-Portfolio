@@ -1,14 +1,19 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Code2, Target } from "lucide-react";
+import { GraduationCap, Code2, Target, Sparkles } from "lucide-react";
+import TiltCard from "./TiltCard";
+import AnimatedCounter from "./AnimatedCounter";
 
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <div className="mb-12">
-    <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
-      <span className="neon-text">{children}</span>
-    </h2>
-    <div className="w-20 h-0.5 bg-primary/50 mt-4 rounded-full" style={{ boxShadow: "0 0 10px hsl(190 100% 50% / 0.4)" }} />
-  </div>
-);
+const stats = [
+  { value: 100, suffix: "+", label: "Problems Solved" },
+  { value: 10, suffix: "+", label: "Projects Built" },
+  { value: 5, suffix: "+", label: "Technologies" },
+];
+
+const cards = [
+  { icon: GraduationCap, title: "Education", desc: "B.Tech – CSE (AI & ML)", sub: "Lovely Professional University | 2027" },
+  { icon: Code2, title: "Focus Areas", desc: "Full Stack Development, ML, NLP", sub: "Building scalable applications" },
+  { icon: Target, title: "Goal", desc: "Build impactful software", sub: "Solving real-world problems with code" },
+];
 
 const AboutSection = () => (
   <section id="about" className="section-padding">
@@ -18,10 +23,38 @@ const AboutSection = () => (
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7 }}
     >
-      <SectionTitle>About Me</SectionTitle>
+      <div className="mb-16 flex items-center gap-3">
+        <Sparkles className="text-primary" size={20} />
+        <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+          <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">About Me</span>
+        </h2>
+      </div>
+
+      {/* Animated Stats */}
+      <div className="grid grid-cols-3 gap-6 mb-16">
+        {stats.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.15 }}
+            className="text-center"
+          >
+            <AnimatedCounter value={s.value} suffix={s.suffix} className="text-4xl md:text-5xl neon-text" />
+            <p className="text-xs text-muted-foreground mt-2 font-mono uppercase tracking-wider">{s.label}</p>
+          </motion.div>
+        ))}
+      </div>
 
       <div className="grid md:grid-cols-2 gap-10">
-        <div className="space-y-5">
+        <motion.div
+          className="space-y-5"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           <p className="text-foreground/70 leading-relaxed text-sm md:text-base">
             👋 Hey, I'm <span className="neon-text-subtle font-semibold">Naga Venkata Sai Potluri</span>, a Software Engineering student.
           </p>
@@ -29,41 +62,34 @@ const AboutSection = () => (
             I've been working with <span className="text-foreground font-medium">Python</span>, <span className="text-foreground font-medium">React</span>, and <span className="text-foreground font-medium">Machine Learning</span>, building applications that are fast, scalable and user-friendly.
           </p>
           <p className="text-foreground/60 leading-relaxed text-sm md:text-base">
-            I like solving problems, learning new things, and experimenting with different technologies. My goal is to become a professional software engineer and contribute to innovative projects that solve real-world problems.
+            I like solving problems, learning new things, and experimenting with different technologies. My goal is to become a professional software engineer and contribute to innovative projects.
           </p>
-        </div>
+        </motion.div>
 
         <div className="space-y-4">
-          {[
-            {
-              icon: GraduationCap,
-              title: "Education",
-              desc: "B.Tech – CSE (AI & ML)",
-              sub: "Lovely Professional University | 2027",
-            },
-            {
-              icon: Code2,
-              title: "Focus Areas",
-              desc: "Full Stack Development, Machine Learning, NLP",
-              sub: "Building scalable applications",
-            },
-            {
-              icon: Target,
-              title: "Goal",
-              desc: "Build impactful software",
-              sub: "Solving real-world problems with code",
-            },
-          ].map(({ icon: Icon, title, desc, sub }) => (
-            <div key={title} className="glass-card glass-card-hover rounded-xl p-5 flex items-start gap-4">
-              <div className="p-2.5 rounded-lg neon-border">
-                <Icon size={18} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-sm text-foreground">{title}</h3>
-                <p className="text-xs text-foreground/70 mt-1">{desc}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
-              </div>
-            </div>
+          {cards.map(({ icon: Icon, title, desc, sub }, i) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.5 }}
+            >
+              <TiltCard className="glass-card glass-card-hover rounded-xl p-5 flex items-start gap-4 group cursor-default">
+                <motion.div
+                  className="p-2.5 rounded-lg neon-border"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Icon size={18} className="text-primary" />
+                </motion.div>
+                <div>
+                  <h3 className="font-semibold text-sm text-foreground">{title}</h3>
+                  <p className="text-xs text-foreground/70 mt-1">{desc}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
+                </div>
+              </TiltCard>
+            </motion.div>
           ))}
         </div>
       </div>
